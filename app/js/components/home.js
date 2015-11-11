@@ -6,6 +6,12 @@
 var React = require("react");
 
 /*
+ * Require any local code we need, like stores, utils etc.
+ */
+var TickStore = require("../stores/tick-store");
+var HomeActionCreators = require("../action-creators/home-action-creators");
+
+/*
  * "Private" variables and functions can go here
  */
 var _countDownTicker;
@@ -33,7 +39,7 @@ var Home = React.createClass({
      */
     getInitialState: function () {
         return {
-            ticksRemaining: 10
+            ticksRemaining: TickStore.getRemainingTicks()
         };
     },
 
@@ -60,11 +66,11 @@ var Home = React.createClass({
      * Private functions
      */
     _onTick: function () {
-        if (this.state.ticksRemaining > 0) {
-            this.setState({
-                ticksRemaining: this.state.ticksRemaining - 1
-            });
-        }
+        HomeActionCreators.timerTick();
+
+        this.setState({
+            ticksRemaining: TickStore.getRemainingTicks()
+        });
     },
 
 });

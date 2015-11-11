@@ -8,7 +8,6 @@ var assign = require("object-assign");
  * Require our own modules
  */
 var AppDispatcher = require("../dispatcher/app-dispatcher");
-var AppConstants = require("../constants/app-constants");
 
 var Logger = require("../utils/logger");
 
