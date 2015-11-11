@@ -49,7 +49,7 @@ var Home = React.createClass({
 
         return (
             <div>
-                <span className="hello-react">
+                <span className="display-text">
                     {displayText}
                 </span>
             </div>
