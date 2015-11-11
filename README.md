@@ -1,3 +1,19 @@
+React Flux Seed
+===============
+
+A small application that demonstrates the Flux architecture and ReactJS
+rendering.
+
+Requirements
+------------
+
+1. `npm`
+
+Setup
+-----
+
+1. `npm install`
+
 License
 -------
 
