@@ -1,0 +1,11 @@
+{
+  "name": "react-flux-seed",
+  "version": "1.0.0",
+  "description": "A ReactJS and Flux demonstration.",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Corey Prophitt",
+  "license": "MIT"
+}
