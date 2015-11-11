@@ -6,28 +6,40 @@
 var React = require("react");
 
 /*
- * "Private" variables go here
+ * "Private" variables and functions can go here
  */
 var _countDownTicker;
 
 var Home = React.createClass({
 
+    /*
+     * Called once when the component is mounted
+     */
     componentDidMount: function () {
         _countDownTicker = setInterval(this._onTick, 1000);
     },
 
+    /*
+     * Called once when the component is unmounted
+     */
     componentWillUnmount: function () {
         if (_countDownTicker) {
             clearInterval(_countDownTicker);
         }
     },
 
+    /*
+     * Called once before componentDidMount to set the initial component state.
+     */
     getInitialState: function () {
         return {
             ticksRemaining: 10
         };
     },
 
+    /*
+     * Called every time the state changes
+     */
     render: function () {
         var displayText = "Action Triggered!";
 
@@ -44,6 +56,9 @@ var Home = React.createClass({
         );
     },
 
+    /*
+     * Private functions
+     */
     _onTick: function () {
         if (this.state.ticksRemaining > 0) {
             this.setState({
