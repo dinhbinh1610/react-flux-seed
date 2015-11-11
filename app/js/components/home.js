@@ -41,14 +41,14 @@ var Home = React.createClass({
      * Called every time the state changes
      */
     render: function () {
-        var displayText = "Action Triggered!";
+        var displayText = "Action Triggered";
 
         if (this.state.ticksRemaining > 0) {
-            displayText = this.state.ticksRemaining + "...";
+            displayText = this.state.ticksRemaining;
         }
 
         return (
-            <div>
+            <div className="text-container">
                 <span className="display-text">
                     {displayText}
                 </span>
