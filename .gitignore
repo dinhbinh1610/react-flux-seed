@@ -9,7 +9,7 @@
 tags
 
 # Ignore any node modules
-*/node_modules/*
+node_modules/*
 
 # Ignore any client build artifacts
-*/build/*
+build/*
