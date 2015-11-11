@@ -54,7 +54,7 @@ var Home = React.createClass({
      * Called every time the state changes
      */
     render: function () {
-        var displayText = "Action Triggered";
+        var displayText = "All Done";
 
         if (this.state.ticksRemaining > 0) {
             displayText = this.state.ticksRemaining;
