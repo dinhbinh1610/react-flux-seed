@@ -15,14 +15,34 @@ var AppConstants = require("../constants/app-constants");
  */
 var _ticks = 10;
 
+var TickStoreEvents = {
+    Changed: "changed"
+};
+
 /*
  * TickStore
  *  - Watches all events and prints them to the console.
  */
 var TickStore = assign({}, EventEmitter.prototype, {
 
+    emitChange: function () {
+        this.emit(TickStoreEvents.Changed);
+    },
+
+    addChangeListener: function (callback) {
+        this.on(TickStoreEvents.Changed, callback);
+    },
+
+    removeChangeListener: function (callback) {
+        this.removeListener(TickStoreEvents.Changed, callback);
+    },
+
     getRemainingTicks: function () {
         return _ticks;
+    },
+
+    hasMoreTicks: function () {
+        return _ticks > -1;
     },
 
 });
@@ -33,9 +53,14 @@ var TickStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function (action) {
   switch (action.actionType) {
       case AppConstants.TICK_GENERATED:
-          if (_ticks > 0) {
+          if (_ticks >= 0) {
             _ticks -= 1;
           }
+
+          /*
+           * Tell subscribers we have changed
+           */
+          TickStore.emitChange();
           break;
 
       default:

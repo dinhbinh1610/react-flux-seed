@@ -14,6 +14,7 @@ var Dispatcher = require("./dispatcher/app-dispatcher");
  * Initialize all application modules/stores below
  */
 require("./stores/log-store");
+require("./stores/tick-store");
 
 var Home = require("./components/home");
 

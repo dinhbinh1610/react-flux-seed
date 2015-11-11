@@ -22,16 +22,23 @@ var Home = React.createClass({
      * Called once when the component is mounted
      */
     componentDidMount: function () {
-        _countDownTicker = setInterval(this._onTick, 1000);
+        /*
+         * Tell the TickStore we want to know about changes, and when
+         * a change occurrs trigger our _onTickChange function.
+         */
+        TickStore.addChangeListener(this._onTickChange);
+
+        /*
+         * Start our own countdown that triggers ticks.
+         */
+        _countDownTicker = setInterval(this._onInterval, 1000);
     },
 
     /*
      * Called once when the component is unmounted
      */
     componentWillUnmount: function () {
-        if (_countDownTicker) {
-            clearInterval(_countDownTicker);
-        }
+        this._removeInterval();
     },
 
     /*
@@ -65,13 +72,26 @@ var Home = React.createClass({
     /*
      * Private functions
      */
-    _onTick: function () {
-        HomeActionCreators.timerTick();
-
-        this.setState({
-            ticksRemaining: TickStore.getRemainingTicks()
-        });
+    _onTickChange: function () {
+        if (TickStore.hasMoreTicks()) {
+            this.setState({
+                ticksRemaining: TickStore.getRemainingTicks()
+            });
+        } else {
+            this._removeInterval();
+        }
     },
+
+    _onInterval: function () {
+        HomeActionCreators.timerTick();
+    },
+
+    _removeInterval: function () {
+        if (_countDownTicker) {
+            clearInterval(_countDownTicker);
+            _countDownTicker = undefined;
+        }
+    }
 
 });
 
