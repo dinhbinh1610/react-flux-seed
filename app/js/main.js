@@ -13,6 +13,7 @@ var Dispatcher = require("./dispatcher/app-dispatcher");
 /*
  * Initialize all application modules/stores below
  */
+require("./stores/log-store");
 
 var Home = require("./components/home");
 
