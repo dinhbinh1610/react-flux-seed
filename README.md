@@ -1,18 +1,34 @@
 React Flux Seed
 ===============
 
-A small application that demonstrates the Flux architecture and ReactJS
+A demo application demonstrating the Flux architecture and ReactJS
 rendering.
 
 Requirements
 ------------
 
-1. `npm`
+1. `git`
+2. `npm`
 
 Setup
 -----
 
-1. `npm install`
+1. `git clone https://github.com/prophittcorey/react-flux-seed`
+2. `cd react-flux-seed`
+3. `npm install`
+4. `gulp`
+
+The first step is to fetch the code with git and hopping into the repositories
+root directory. Once inside, run `npm install` to install all dependencies. The
+final step is running `gulp` to perform a development build and automatically
+start a development server.
+
+There are some additional `gulp` options you can provide for some added
+functionality:
+
+1. `gulp --livereload` will begin a development server with live reloading
+   enabled.
+2. `gulp --production` will begin a production build (minified/uglified)
 
 License
 -------
