@@ -4,6 +4,13 @@ React Flux Seed
 A demo application demonstrating the Flux architecture and ReactJS
 rendering.
 
+This application does **not** use ES6. Instead, it uses ES5 (the JavaScript most
+people are familiar and comfortable with). Additionally, this application makes
+use of the following npm packages for its core workflow:
+
+1. `browserify` (keeps JavaScript in modules, requires them as needed)
+2. `gulp` (handles development workflow tasks)
+
 Requirements
 ------------
 
@@ -29,6 +36,9 @@ functionality:
 1. `gulp --livereload` will begin a development server with live reloading
    enabled.
 2. `gulp --production` will begin a production build (minified/uglified)
+
+Notes
+-----
 
 If you get an error, 'gulp not found' it means you have not
 installed `gulp` globally.
