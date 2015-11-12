@@ -30,6 +30,19 @@ functionality:
    enabled.
 2. `gulp --production` will begin a production build (minified/uglified)
 
+A note on `gulp`. If you get an error, 'gulp not found' it means you have not
+installed `gulp` globally. You can use the local version of `gulp` by providing
+the complete path, `./node_modules/bin/gulp`. If this is painful you can
+globally install `gulp` via **npm** `npm install -g gulp`. An alternative
+solution (and the one I use) is to modify your `$PATH` environment to look
+through the local `node_modules/` before any global paths. You can do this by
+modifying your `$PATH` variable in your startup script, for instance my
+`~/.bashrc` file contains this line:
+
+```bash
+export PATH=node_modules/.bin:$PATH
+```
+
 License
 -------
 
