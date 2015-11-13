@@ -13,7 +13,7 @@ var AppConstants = require("../constants/app-constants");
 /*
  * Private variables and functions can go here
  */
-var _ticks = 10;
+var _ticksRemaining = 10;
 
 var TickStoreEvents = {
     Changed: "changed"
@@ -38,11 +38,11 @@ var TickStore = assign({}, EventEmitter.prototype, {
     },
 
     getRemainingTicks: function () {
-        return _ticks;
+        return _ticksRemaining;
     },
 
     hasMoreTicks: function () {
-        return _ticks > -1;
+        return _ticksRemaining > -1;
     },
 
 });
@@ -53,8 +53,8 @@ var TickStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function (action) {
   switch (action.actionType) {
       case AppConstants.TICK_GENERATED:
-          if (_ticks >= 0) {
-            _ticks -= 1;
+          if (_ticksRemaining >= 0) {
+            _ticksRemaining -= 1;
           }
 
           /*
